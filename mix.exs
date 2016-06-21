@@ -13,7 +13,7 @@ defmodule Socks.Mixfile do
   end
 
   def application do
-    [ applications: [:loggery] ]
+    [ applications: [:logger] ]
   end
 
   def docs do
