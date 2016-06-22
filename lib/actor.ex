@@ -4,7 +4,7 @@ defmodule Socks.Actor do
 		quote do
 			use GenServer
 			import GenServer, only: [call: 2, cast: 2]
-			import Routr.Ops, only: [return: 1, return: 2, return: 3]
+			import Socks.Role.Ops, only: [return: 1, return: 2, return: 3]
 
 			def start(args) when is_list(args) do 
 				{:ok, pid} = GenServer.start_link(__MODULE__, args)

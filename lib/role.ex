@@ -9,11 +9,11 @@ defmodule Socks.Role do
 
 	defmacro __using__(mod \\ nil, opts \\ []) do
 		quote do
-			import Routr.Ops
+			import Socks.Role.Ops
 			import GenServer, only: [call: 2, cast: 2]
 
 			unquote( mod && quote do
-				@before_compile Routr
+				@before_compile Socks.Role
 				defp fallback(mode, query, handle), do: apply(unquote(mod), mode, [query, handle])
 			end)
 

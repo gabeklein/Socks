@@ -3,16 +3,11 @@ defmodule Socks.Handle do
   import Application, only: [get_env: 2]
 
   defp config(a) do 
-    case a do
-      :endpoint -> INewClient
-      :api -> "app-api"
-    end
+    get_env(:socks, a)
   end
 
-  #get_env(:routr, a)
-
   def websocket_init(_transport, req, _) do
-    req = set_resp_header("Sec-WebSocket-Protocol", config(:api), compact(req))
+    req = set_resp_header("Sec-WebSocket-Protocol", config(:sub_protocol), compact(req))
     {:ok, req, { config(:endpoint) , %{}}, :hibernate}
   end
 
