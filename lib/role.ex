@@ -12,7 +12,7 @@ defmodule Socks.Role do
 			import Socks.Role.Ops
 			import GenServer, only: [call: 2, cast: 2]
 
-			unquote( mod && quote do
+			unquote( mod != [] && quote do
 				@before_compile Socks.Role
 				defp fallback(mode, query, handle), do: apply(unquote(mod), mode, [query, handle])
 			end)

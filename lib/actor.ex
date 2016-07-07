@@ -66,7 +66,7 @@ defmodule Socks.Actor do
 		defmacro role(name, fallback \\ nil, block) do
 			quote do
 				defmodule unquote(name) do
-					use Routr, unquote(fallback)
+					use Socks.Role, unquote(fallback)
 					unquote(block)
 				end
 			end
