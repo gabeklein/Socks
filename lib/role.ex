@@ -8,14 +8,25 @@ defmodule Socks.Role do
 	end
 
 	defmacro __using__(mod \\ nil, opts \\ []) do
+
+		module = case mod do
+			[] ->
+				case Application.get_env(:socks, :global_fallback) do
+					nil -> Socks.Fallback
+					mod -> mod
+				end |> IO.inspect
+			mod -> mod
+		end
+
 		quote do
 			import Socks.Role.Ops
 			import GenServer, only: [call: 2, cast: 2]
 
-			unquote( mod != [] && quote do
+
+			# unquote( mod != [] && quote do
 				@before_compile Socks.Role
-				defp fallback(mode, query, handle), do: apply(unquote(mod), mode, [query, handle])
-			end)
+				defp fallback(mode, query, handle), do: apply(unquote(module), mode, [query, handle])
+			# end)
 
 			unquote( opts[:registerable] && quote do
 			  	def handle_mesg("register: " <> name, _) do
