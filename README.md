@@ -22,7 +22,7 @@ Get it from Github:
 
 ```elixir
 def deps do
-  {:immortal, github: "gabeklein/Socks"}
+  {:socks, github: "gabeklein/Socks"}
 end
 ```
 

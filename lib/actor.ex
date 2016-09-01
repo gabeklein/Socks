@@ -6,7 +6,7 @@ defmodule Socks.Actor do
 			import GenServer, only: [call: 2, cast: 2]
 			import Socks.Role.Ops, only: [return: 1, return: 2, return: 3]
 
-			def start(args) when is_list(args) do 
+			def start_link(args) when is_list(args) do 
 				{:ok, pid} = GenServer.start_link(__MODULE__, args)
 				pid
 			end
