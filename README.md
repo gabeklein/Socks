@@ -5,7 +5,7 @@ Library for managing web-socket centric applications
 
 More features and documentation to come soon!
 You can find a demonstration of the library over at the 
-[FunWithElixir](https://github.com/gabeklein/FunWithSocks) Repo!
+[FunWithSocks](https://github.com/gabeklein/FunWithSocks) Repo!
 
 
 Socks is a small collection of helper modules indented to make it easier
