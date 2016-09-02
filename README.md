@@ -23,7 +23,7 @@ application clients on-demand.
 
 ## Installation
 
-Get it from Github:
+Get it with mix from Github:
 
 ```elixir
 def deps do
@@ -33,8 +33,8 @@ end
 
 Then run `mix deps.get`.
 
-## Contributing
-Ask me; I'm new at this.
+## Questions or Contributing
+Contact me; new at this. My contact info is listed on my profile.
 
 ## License
 MIT. See the `LICENSE` file for more details.
